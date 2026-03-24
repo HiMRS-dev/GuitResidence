@@ -14,6 +14,9 @@
     --radius-md: 16px;
     --radius-sm: 12px;
     --container: 1160px;
+    --bg-guitars-size-a: 1120px 840px;
+    --bg-guitars-size-b: 1600px 1200px;
+    --bg-guitars-offset-b: 320px 240px;
 }
 
 * {
@@ -28,6 +31,7 @@ body {
     margin: 0;
     color: var(--text);
     background:
+        url("images/guitar_background_pattern.svg") 0 0 / var(--bg-guitars-size-a) repeat,
         radial-gradient(circle at top left, rgba(64, 196, 219, 0.14), transparent 28%),
         linear-gradient(180deg, #0a0a0a 0%, #0f1114 55%, #12161a 100%);
     font-family: Arial, sans-serif;
@@ -164,22 +168,55 @@ h3 {
 }
 
 .hero {
+    position: relative;
     padding-top: 64px;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    width: min(760px, calc(100% - 32px));
+    height: 420px;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(circle at center, rgba(64, 196, 219, 0.18), transparent 58%),
+        radial-gradient(circle at top, rgba(31, 155, 211, 0.14), transparent 42%);
+    filter: blur(18px);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
 .hero-grid {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-    gap: 48px;
-    align-items: center;
+    place-items: center;
 }
 
 .hero-copy {
-    max-width: 620px;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(36px, 5vw, 56px) clamp(24px, 5vw, 56px);
+    text-align: center;
+    border: 1px solid rgba(64, 196, 219, 0.14);
+    border-radius: calc(var(--radius-xl) + 8px);
+    background:
+        radial-gradient(circle at top center, rgba(64, 196, 219, 0.08), transparent 48%),
+        linear-gradient(180deg, rgba(19, 24, 28, 0.94), rgba(13, 17, 20, 0.84));
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+}
+
+.hero-copy h1 {
+    max-width: 11ch;
+    margin-inline: auto;
 }
 
 .hero-lead {
-    margin-top: 20px;
+    max-width: 620px;
+    margin: 20px auto 0;
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--muted);
 }
@@ -189,26 +226,17 @@ h3 {
 }
 
 .hero-meta {
-    margin-top: 18px;
+    max-width: 560px;
+    margin: 18px auto 0;
     color: rgba(243, 247, 251, 0.74);
 }
 
 .hero-media {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--line);
-    background: linear-gradient(180deg, #15191c, #0f1215);
-    box-shadow: var(--shadow);
+    display: none;
 }
 
 .hero-media::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 38%;
-    background: linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.55));
-    pointer-events: none;
+    content: none;
 }
 
 .hero-media img,
@@ -220,7 +248,7 @@ h3 {
 }
 
 .hero-media img {
-    min-height: 560px;
+    min-height: 0;
 }
 
 .cards,
@@ -455,6 +483,12 @@ h3 {
 }
 
 @media (max-width: 960px) {
+    :root {
+        --bg-guitars-size-a: 900px 675px;
+        --bg-guitars-size-b: 1280px 960px;
+        --bg-guitars-offset-b: 240px 180px;
+    }
+
     .section {
         padding: 80px 0;
     }
@@ -484,6 +518,12 @@ h3 {
 }
 
 @media (max-width: 680px) {
+    :root {
+        --bg-guitars-size-a: 700px 525px;
+        --bg-guitars-size-b: 980px 735px;
+        --bg-guitars-offset-b: 150px 115px;
+    }
+
     .section {
         padding: 72px 0;
     }
@@ -499,6 +539,10 @@ h3 {
     .cards-4,
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-copy {
+        padding: 32px 20px;
     }
 
     .button,

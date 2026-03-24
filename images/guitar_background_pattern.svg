@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" fill="none">
+  <defs>
+    <symbol id="guitar-a" viewBox="0 0 1200 1200">
+      <path d="M1096 99L1061 82L1043 80L1012 110L1000 108L978 140L968 142L948 174L938 175L918 205L913 245L907 246L602 545L591 546L556 523L512 508L475 507L442 515L420 527L400 545L348 629L323 655L175 696L145 713L115 740L91 775L78 815L76 860L88 914L108 954L148 1007L185 1046L220 1076L262 1104L303 1122L338 1129L385 1128L422 1118L462 1094L484 1072L506 1039L518 1011L554 879L575 859L661 807L681 784L694 759L700 722L697 685L684 651L656 610L657 600L960 284L983 279L999 281L1024 259L1025 251L1049 238L1058 221L1067 219L1090 198L1089 185L1119 154L1118 140L1104 108Z"/>
+    </symbol>
+
+    <symbol id="guitar-b" viewBox="0 0 1200 1200">
+      <path d="M1132 85L1104 71L1073 74L1071 59L1062 55L1049 62L1046 72L1027 73L1017 87L1000 87L990 96L989 102L971 103L961 111L960 118L939 121L933 127L932 135L914 135L908 140L905 148L908 154L917 155L917 164L901 175L903 203L894 217L508 616L489 622L472 619L456 603L447 575L448 556L455 536L484 499L490 483L499 482L499 476L494 467L486 471L449 467L432 472L409 486L376 520L353 556L312 642L284 676L258 695L144 746L104 772L77 795L53 825L43 849L39 869L41 911L58 962L85 1003L133 1050L132 1068L142 1076L157 1073L203 1116L235 1139L271 1156L291 1161L325 1163L348 1159L384 1143L404 1127L433 1094L461 1043L494 942L511 912L530 893L591 863L628 837L650 810L659 789L659 766L651 755L641 749L626 750L587 775L558 777L540 770L525 757L515 741L514 729L957 239L974 230L1023 226L1049 190L1079 133L1098 116L1138 101L1139 95Z"/>
+    </symbol>
+
+    <pattern id="bg" patternUnits="userSpaceOnUse" width="780" height="580">
+      <g opacity="0.1">
+        <g transform="translate(42 48) rotate(-14 54 54)">
+          <use href="#guitar-a" fill="#40c4db" transform="scale(0.086)"/>
+        </g>
+
+        <g transform="translate(328 54) rotate(104 50 50)">
+          <use href="#guitar-b" fill="#1f9bd3" transform="translate(96 0) scale(-0.08 0.08)"/>
+        </g>
+
+        <g transform="translate(626 42) rotate(188 46 46)">
+          <use href="#guitar-a" fill="#7adbe5" transform="translate(94 0) scale(-0.078 0.078)"/>
+        </g>
+
+        <g transform="translate(88 334) rotate(-104 48 48)">
+          <use href="#guitar-a" fill="#7adbe5" transform="scale(0.078)"/>
+        </g>
+
+        <g transform="translate(346 274) rotate(24 46 46)">
+          <use href="#guitar-b" fill="#40c4db" transform="translate(92 0) scale(-0.074 0.074)"/>
+        </g>
+
+        <g transform="translate(590 336) rotate(246 44 44)">
+          <use href="#guitar-a" fill="#1f9bd3" transform="scale(0.07)"/>
+        </g>
+
+      </g>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+</svg>
