@@ -90,9 +90,11 @@ h3 {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(10, 10, 10, 0.84);
+    background:
+        linear-gradient(180deg, rgba(14, 18, 21, 0.94), rgba(11, 14, 16, 0.9)),
+        linear-gradient(90deg, rgba(64, 196, 219, 0.08), rgba(31, 155, 211, 0.04) 52%, transparent);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(64, 196, 219, 0.1);
 }
 
 .header-row {
@@ -108,8 +110,18 @@ h3 {
     align-items: center;
 }
 
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+}
+
 .header-logo img {
     height: 62px;
+    width: auto;
+}
+
+.footer-logo img {
+    height: 52px;
     width: auto;
 }
 
@@ -423,6 +435,8 @@ h3 {
     border: 1px solid rgba(64, 196, 219, 0.1);
     background: #0f1113;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+    mask-image: linear-gradient(to right, black 70%, transparent);
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent);
 }
 
 .teacher-media::after {
@@ -430,14 +444,14 @@ h3 {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(9, 11, 13, 0.08), rgba(9, 11, 13, 0.18)),
-        linear-gradient(135deg, rgba(64, 196, 219, 0.06), transparent 42%);
+        linear-gradient(180deg, rgba(9, 11, 13, 0.4), rgba(9, 11, 13, 0.6)),
+        linear-gradient(135deg, rgba(64, 196, 219, 0.04), transparent 42%);
     pointer-events: none;
 }
 
 .teacher-media img {
     min-height: 580px;
-    filter: saturate(0.88) brightness(0.92);
+    filter: saturate(0.7) brightness(0.75);
 }
 
 .teacher-copy {
@@ -536,6 +550,36 @@ h3 {
     margin-top: 28px;
 }
 
+.site-footer {
+    padding: 34px 0 40px;
+    background:
+        linear-gradient(180deg, rgba(12, 15, 18, 0.96), rgba(9, 11, 13, 0.98)),
+        linear-gradient(90deg, rgba(64, 196, 219, 0.05), transparent 38%, rgba(31, 155, 211, 0.04));
+    border-top: 1px solid rgba(64, 196, 219, 0.1);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: center;
+}
+
+.footer-brand {
+    max-width: 420px;
+}
+
+.footer-meta p {
+    color: var(--muted);
+}
+
+.footer-meta {
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+    text-align: right;
+}
+
 @media (max-width: 1080px) {
     .cards-4,
     .stats-grid {
@@ -544,6 +588,20 @@ h3 {
 
     .reviews-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .footer-meta {
+        justify-items: start;
+        text-align: left;
     }
 }
 
@@ -578,6 +636,11 @@ h3 {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 @media (max-width: 680px) {
@@ -595,6 +658,10 @@ h3 {
 
     .header-logo img {
         height: 52px;
+    }
+
+    .footer-logo img {
+        height: 46px;
     }
 
     .cards-4,
