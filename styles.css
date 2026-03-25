@@ -14,9 +14,7 @@
     --radius-md: 16px;
     --radius-sm: 12px;
     --container: 1160px;
-    --bg-guitars-size-a: 1120px 840px;
-    --bg-guitars-size-b: 1600px 1200px;
-    --bg-guitars-offset-b: 320px 240px;
+    --bg-underlay-size: min(100vw, 1360px) auto;
 }
 
 * {
@@ -31,8 +29,10 @@ body {
     margin: 0;
     color: var(--text);
     background:
-        url("images/guitar_background_pattern.svg") 0 0 / var(--bg-guitars-size-a) repeat,
-        radial-gradient(circle at top left, rgba(64, 196, 219, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(19, 38, 45, 0.28) 0%, rgba(27, 63, 74, 0.18) 22%, rgba(31, 155, 211, 0.08) 58%, rgba(10, 10, 10, 0.12) 100%),
+        radial-gradient(circle at top left, rgba(64, 196, 219, 0.16), transparent 28%),
+        radial-gradient(circle at 78% 24%, rgba(31, 155, 211, 0.1), transparent 26%),
+        url("images/backgroundSite.svg") center top / var(--bg-underlay-size) repeat-y,
         linear-gradient(180deg, #0a0a0a 0%, #0f1114 55%, #12161a 100%);
     font-family: Arial, sans-serif;
     line-height: 1.7;
@@ -63,6 +63,27 @@ h3 {
 
 .section {
     padding: 96px 0;
+}
+
+#teacher {
+    position: relative;
+    isolation: isolate;
+}
+
+#teacher::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 72% 50%, rgba(10, 10, 10, 0.34), transparent 42%),
+        radial-gradient(circle at 24% 52%, rgba(10, 10, 10, 0.16), transparent 36%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#teacher > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .site-header {
@@ -484,9 +505,7 @@ h3 {
 
 @media (max-width: 960px) {
     :root {
-        --bg-guitars-size-a: 900px 675px;
-        --bg-guitars-size-b: 1280px 960px;
-        --bg-guitars-offset-b: 240px 180px;
+        --bg-underlay-size: min(100vw, 980px) auto;
     }
 
     .section {
@@ -519,9 +538,7 @@ h3 {
 
 @media (max-width: 680px) {
     :root {
-        --bg-guitars-size-a: 700px 525px;
-        --bg-guitars-size-b: 980px 735px;
-        --bg-guitars-offset-b: 150px 115px;
+        --bg-underlay-size: min(100vw, 760px) auto;
     }
 
     .section {
