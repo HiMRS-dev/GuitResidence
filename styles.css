@@ -351,49 +351,93 @@ h3 {
 }
 
 .confidence-block {
-    padding: 40px;
+    padding: clamp(36px, 4vw, 48px);
 }
 
-.confidence-text {
-    max-width: 760px;
+.confidence-heading {
+    max-width: 620px;
+    margin-bottom: 40px;
+}
+
+.confidence-heading h2 {
+    margin-bottom: 18px;
+}
+
+.confidence-intro {
+    max-width: 540px;
     color: var(--muted);
-    margin-bottom: 14px;
+    font-size: 1.02rem;
+    line-height: 1.8;
 }
 
-.myths-list {
-    list-style: none;
-    padding: 0;
-    margin: 28px 0 0;
+.confidence-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.confidence-card {
+    padding: 24px 24px 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(17, 20, 22, 0.62);
+}
+
+.confidence-card-title {
     display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 1.08rem;
+    line-height: 1.35;
 }
 
-.myths-list li {
-    padding: 14px 18px;
+.confidence-card-title::before {
+    content: "";
+    width: 16px;
+    height: 2px;
     border-radius: 999px;
-    background: rgba(64, 196, 219, 0.1);
-    border: 1px solid rgba(64, 196, 219, 0.28);
-    color: #fff;
+    background: rgba(64, 196, 219, 0.72);
+}
+
+.confidence-card-text {
+    max-width: 24ch;
+    color: var(--muted);
+    line-height: 1.65;
 }
 
 .teacher-grid {
     display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-    gap: 40px;
+    grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+    gap: 48px;
     align-items: center;
 }
 
 .teacher-media {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    justify-self: center;
     overflow: hidden;
     border-radius: var(--radius-xl);
-    border: 1px solid var(--line);
-    background: #111;
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(64, 196, 219, 0.1);
+    background: #0f1113;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.teacher-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(9, 11, 13, 0.08), rgba(9, 11, 13, 0.18)),
+        linear-gradient(135deg, rgba(64, 196, 219, 0.06), transparent 42%);
+    pointer-events: none;
 }
 
 .teacher-media img {
-    min-height: 620px;
+    min-height: 580px;
+    filter: saturate(0.88) brightness(0.92);
 }
 
 .teacher-copy {
@@ -567,13 +611,9 @@ h3 {
         width: 100%;
     }
 
-    .myths-list {
-        flex-direction: column;
-    }
-
-    .myths-list li {
-        width: 100%;
-        border-radius: 16px;
+    .confidence-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .confidence-block,
