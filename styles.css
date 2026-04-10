@@ -105,6 +105,33 @@ h3 {
     gap: 24px;
 }
 
+.header-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.header-nav a {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: rgba(232, 244, 252, 0.82);
+    font-size: 0.93rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover,
+.header-nav a:focus-visible {
+    color: #79dcea;
+}
+
 .header-logo {
     display: inline-flex;
     align-items: center;
@@ -1007,6 +1034,10 @@ h3 {
         padding: 80px 0;
     }
 
+    .header-nav {
+        display: none;
+    }
+
     .hero-grid,
     .split-grid,
     .teacher-grid {
@@ -1069,6 +1100,12 @@ h3 {
     .button,
     .button-large {
         width: 100%;
+    }
+
+    .site-header .header-cta {
+        width: auto;
+        min-height: 46px;
+        padding: 10px 18px;
     }
 
     .confidence-grid {
