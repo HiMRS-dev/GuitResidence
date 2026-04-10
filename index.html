@@ -9,6 +9,7 @@
     content="Курсы игры на гитаре для новичков: первые 10 песен за 3 месяца, понятный темп обучения и удовольствие от процесса."
   >
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
   <header class="site-header">
@@ -181,7 +182,31 @@
         </div>
       </div>
     </section>
+    <section class="section" id="student-gallery">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Наши Ученики</h2>
+        </div>
 
+        <div class="gallery-container">
+          <div class="swiper gallerySwiper studentGallerySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="images/students/student-06.jpg" alt="Фото ученика 6" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-07.jpg" alt="Фото ученика 7" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-08.jpg" alt="Фото ученика 8" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-01.jpg" alt="Фото ученика 1" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-02.jpg" alt="Фото ученика 2" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-03.jpg" alt="Фото ученика 3" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-04.jpg" alt="Фото ученика 4" loading="lazy" width="800" height="1000"></div>
+              <div class="swiper-slide"><img src="images/students/student-05.jpg" alt="Фото ученика 5" loading="lazy" width="800" height="1000"></div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section" id="trust">
       <div class="container">
         <div class="section-heading">
@@ -206,29 +231,22 @@
             <span>Работаем в СПБ и Южно-Сахалинске</span>
           </article>
         </div>
+        <div class="gallery-container">
+          <div class="swiper gallerySwiper reviewsGallerySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="images/reviews/review-01.jpg" alt="Отзыв ученика 1" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-02.jpg" alt="Отзыв ученика 2" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-03.jpg" alt="Отзыв ученика 3" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-04.jpg" alt="Отзыв ученика 4" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-05.jpg" alt="Отзыв ученика 5" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-06.jpg" alt="Отзыв ученика 6" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-07.jpg" alt="Отзыв ученика 7" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-08.jpg" alt="Отзыв ученика 8" loading="lazy" width="1080" height="1920"></div>
+              <div class="swiper-slide"><img src="images/reviews/review-09.jpg" alt="Отзыв ученика 9" loading="lazy" width="1080" height="1920"></div>
+          </div>
 
-        <div class="reviews-grid">
-          <article class="review-card">
-            <p>
-              «Пришёл с нуля и уже через несколько занятий смог сыграть первые
-              песни. Всё объясняется спокойно и по делу».
-            </p>
-            <span>Ученик с нуля</span>
-          </article>
-          <article class="review-card">
-            <p>
-              «Нравится, что здесь нет давления. Занятия идут в понятном темпе,
-              и прогресс ощущается очень естественно».
-            </p>
-            <span>Взрослый ученик</span>
-          </article>
-          <article class="review-card">
-            <p>
-              «Самое ценное - уверенность, которая появляется в процессе. Уже не
-              боюсь брать в руки инструмент и пробовать новое».
-            </p>
-            <span>Любитель музыки</span>
-          </article>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
     </section>
@@ -302,5 +320,143 @@
       </div>
     </div>
   </footer>
+  <div class="modal image-modal" id="imageModal">
+    <button type="button" class="close" id="closeImageModal" aria-label="Закрыть галерею">&times;</button>
+    <div class="swiper imageSwiper">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    let studentGallerySwiper;
+    let reviewsGallerySwiper;
+    let imageModalSwiper;
+
+    function initGalleryModal() {
+      const galleries = document.querySelectorAll(".gallerySwiper");
+      const modal = document.getElementById("imageModal");
+      const closeBtn = document.getElementById("closeImageModal");
+      const wrapper = modal?.querySelector(".swiper-wrapper");
+
+      if (!galleries.length || !modal || !wrapper || typeof Swiper !== "function") {
+        return;
+      }
+
+      const openModal = (images, index) => {
+        wrapper.innerHTML = "";
+
+        images.forEach((img) => {
+          const slide = document.createElement("div");
+          slide.className = "swiper-slide image-slide";
+
+          const image = document.createElement("img");
+          image.src = img.src;
+          image.alt = img.alt || "Изображение";
+
+          slide.appendChild(image);
+          wrapper.appendChild(slide);
+        });
+
+        modal.classList.add("show");
+
+        imageModalSwiper = new Swiper(".imageSwiper", {
+          initialSlide: index,
+          slidesPerView: 1,
+          centeredSlides: true,
+          spaceBetween: 0,
+          watchOverflow: true,
+          navigation: {
+            nextEl: ".imageSwiper .swiper-button-next",
+            prevEl: ".imageSwiper .swiper-button-prev"
+          }
+        });
+      };
+
+      const closeModal = () => {
+        modal.classList.remove("show");
+        imageModalSwiper?.destroy(true, true);
+        imageModalSwiper = null;
+      };
+
+      galleries.forEach((gallery) => {
+        const images = Array.from(gallery.querySelectorAll("img"));
+        images.forEach((img, index) => {
+          img.addEventListener("click", () => openModal(images, index));
+        });
+      });
+
+      closeBtn?.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+    }
+
+    function initSwipers() {
+      if (typeof Swiper !== "function") {
+        return;
+      }
+
+      const sharedGalleryConfig = (nextEl, prevEl) => ({
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        loop: false,
+        initialSlide: 1,
+        resistance: true,
+        resistanceRatio: 0.65,
+        watchSlidesProgress: true,
+        speed: 600,
+        effect: "slide",
+        grabCursor: true,
+        navigation: {
+          nextEl,
+          prevEl
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            centeredSlides: false
+          },
+          768: {
+            slidesPerView: 3,
+            centeredSlides: true
+          }
+        }
+      });
+
+      if (document.querySelector(".studentGallerySwiper")) {
+        studentGallerySwiper = new Swiper(
+          ".studentGallerySwiper",
+          sharedGalleryConfig("#student-gallery .swiper-button-next", "#student-gallery .swiper-button-prev")
+        );
+      }
+
+      if (document.querySelector(".reviewsGallerySwiper")) {
+        reviewsGallerySwiper = new Swiper(
+          ".reviewsGallerySwiper",
+          sharedGalleryConfig("#trust .swiper-button-next", "#trust .swiper-button-prev")
+        );
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initGalleryModal();
+      initSwipers();
+    });
+  </script>
 </body>
 </html>
+
