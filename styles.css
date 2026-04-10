@@ -750,6 +750,121 @@ h3 {
     color: var(--accent);
 }
 
+.pricing-box-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    justify-content: stretch;
+}
+
+.pricing-lead {
+    margin: 0;
+    color: #fff;
+}
+
+.pricing-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.price-item {
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 18px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(64, 196, 219, 0.2);
+    background: linear-gradient(180deg, rgba(20, 27, 33, 0.86), rgba(12, 17, 22, 0.82));
+    text-align: center;
+}
+
+.price-item-label {
+    color: var(--muted);
+}
+
+.price-item strong {
+    white-space: nowrap;
+    font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+    color: var(--accent);
+}
+
+.contacts-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+.contacts-card,
+.contacts-map {
+    background: linear-gradient(180deg, rgba(19, 24, 28, 0.96), rgba(13, 17, 20, 0.96));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.contacts-card {
+    padding: 28px;
+}
+
+.contacts-eyebrow {
+    margin: 0 0 12px;
+    color: rgba(121, 220, 234, 0.9);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.contacts-card h3 {
+    margin: 0 0 20px;
+}
+
+.contacts-list {
+    display: grid;
+    gap: 12px;
+}
+
+.contacts-item {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(64, 196, 219, 0.2);
+    background: rgba(11, 16, 21, 0.76);
+}
+
+.contacts-label {
+    display: block;
+    margin-bottom: 6px;
+    color: rgba(121, 220, 234, 0.9);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contacts-item p {
+    margin: 0;
+    color: #f2f7fb;
+}
+
+.contacts-map {
+    margin: 0;
+    overflow: hidden;
+}
+
+.contacts-map img {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
 .cta-box {
     padding: 56px 28px;
     text-align: center;
@@ -807,6 +922,10 @@ h3 {
     .cards-4,
     .stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer-grid {
@@ -957,10 +1076,15 @@ h3 {
         gap: 14px;
     }
 
+    .contacts-map img {
+        min-height: 250px;
+    }
+
     .confidence-block,
     .panel,
     .cta-box,
     .card,
+    .contacts-card,
     .pricing-box,
     .stat-card {
         padding: 24px;
